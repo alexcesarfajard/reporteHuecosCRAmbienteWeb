@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reporte de Huecos y Desperfectos</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Reporte de Huecos y Desperfectos en las Calles</h1>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="reporte.html">Realizar Reporte</a></li>
+                <li><a href="nosotros.html">Nosotros</a></li>
+                <li><a href="contacto.html">Contáctenos</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <h2>Formulario de Reporte</h2>
+            <form>
+                <label for="nombre">Nombre del usuario</label>
+                <input type="text" id="nombre" name="nombre" required placeholder="Ingrese su Nombre">
+
+                <label for="email">Correo electrónico</label>
+                <input type="email" id="email" name="email" required placeholder="Correo electrónico aquí">
+
+                <label for="descripcion">Descripción del problema</label>
+                <textarea id="descripcion" name="descripcion" rows="4" required></textarea>
+
+                <label for="ubicacionTipo">¿Cómo desea indicar la ubicación?</label>
+                <select id="ubicacionTipo" name="ubicacionTipo" onchange="mostrarOpcionesUbicacion()">
+                    <option value="">Seleccione una opción</option>
+                    <option value="descripcion">Describir ubicación</option>
+                    <option value="mapa">Elegir en el mapa</option>
+                </select>
+
+                <div id="opcionesDescripcion" style="display: none;">
+                    <label for="provincia">Provincia</label>
+                    <select id="provincia" name="provincia" required onchange="mostrarCantones()">
+                        <option value="">Seleccione una provincia</option>
+                        <option value="San José">San José</option>
+                        <option value="Alajuela">Alajuela</option>
+                        <option value="Cartago">Cartago</option>
+                        <option value="Heredia">Heredia</option>
+                        <option value="Guanacaste">Guanacaste</option>
+                        <option value="Puntarenas">Puntarenas</option>
+                        <option value="Limón">Limón</option>
+                    </select>
+
+                    <label for="canton" style="display: none;">Cantón</label>
+                    <select id="canton" name="canton" required style="display: none;" onchange="mostrarDistritos()">
+                        <option value="">Seleccione un cantón</option>
+                    </select>
+
+                    <label for="distrito" style="display: none;">Distrito</label>
+                    <select id="distrito" name="distrito" required style="display: none;">
+                        <option value="">Seleccione un distrito</option>
+                    </select>
+
+                    <label for="direccionExacta" style="display: none;">Dirección Exacta</label>
+                    <input type="text" id="direccionExacta" name="direccionExacta" placeholder="Escriba la dirección exacta" style="display: none;">
+                </div>
+
+                <div id="opcionMapaContenedor" style="display: none;">
+                    <h3>Mapa Interactivo</h3>
+                    <div id="mapa" style="height: 400px;">
+
+
+                        <!-- Mapa -->
+
+
+
+                    </div>
+                </div>
+
+                <button type="submit">Enviar Reporte</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>Contacto: soporte@reportehuecos.com | Teléfono: +506 1234-5678</p>
+    </footer>
+
+    <script src="JS.js"></script>
+</body>
+</html>
