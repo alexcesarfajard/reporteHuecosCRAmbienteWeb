@@ -49,6 +49,7 @@ function mostrarDistritos() {
 
     
     const distritos = {
+        //No se agregarán todos los distritos por la cantidad que son
         // San José
         "San José": ["Carmen", "Merced", "Hospital", "Catedral", "Zapote", "San Francisco de Dos Ríos", "Uruca", "Mata Redonda", "Pavas", "Hatillo", "San Sebastián"],
         "Escazú": ["Escazú Centro", "San Rafael", "San Antonio"],

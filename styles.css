@@ -54,6 +54,7 @@ nav .nav-links a:hover {
     color: #FFD700; 
 }
 
+
 h1, h2 {
     color: #007bff;
     text-align: center;
@@ -106,6 +107,7 @@ footer {
     display: flex;
     transition: transform 0.5s ease-in-out;
 }
+
 
 .slide {
     min-width: 100%;
