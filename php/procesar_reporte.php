@@ -1,8 +1,8 @@
 <?php
 // Conexión a la base de datos
 $servername = "localhost";
-$username = "root";  // Cambia esto si tu base de datos tiene un usuario diferente
-$password = "";  // Cambia esto si tu base de datos tiene una contraseña
+$username = "root";  // Verificar usuario del servidor de base de datos
+$password = "";  // Verificar contraseña del servidor de base de datos
 $dbname = "reportes_huecos";  // Nombre de la base de datos
 
 $conn = new mysqli($servername, $username, $password, $dbname);
