@@ -3,90 +3,94 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reporte de Huecos y Desperfectos</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Reporte de Huecos - Reporte de Huecos</title>
+    <link rel="stylesheet" href="css/estilos.css">
 </head>
 <body>
+    <!-- Header común -->
     <header>
-        <h1>Reporte de Huecos y Desperfectos en las Calles</h1>
         <nav>
-            <ul class="nav-links">
+            <ul>
                 <li><a href="index.html">Inicio</a></li>
-                <li><a href="reporte.html">Realizar Reporte</a></li>
+                <li><a href="reporte.html">Reportar Huecos</a></li>
                 <li><a href="nosotros.html">Nosotros</a></li>
-                <li><a href="contacto.html">Contáctenos</a></li>
+                <li><a href="contactanos.html">Contáctanos</a></li>
             </ul>
         </nav>
     </header>
 
+    <!-- Contenido principal -->
     <main>
-        <section>
-            <h2>Formulario de Reporte</h2>
-            <form>
-                <label for="nombre">Nombre del usuario</label>
-                <input type="text" id="nombre" name="nombre" required placeholder="Ingrese su Nombre">
+        <section id="formulario-reporte">
+            <h2>Reporte de Huecos</h2>
+            <p>Por favor, ingresa tus datos y la información sobre el desperfecto en la calle.</p>
 
-                <label for="email">Correo electrónico</label>
-                <input type="email" id="email" name="email" required placeholder="Correo electrónico aquí">
+            <!-- Formulario para los datos del usuario -->
+            <form action="php/procesar_reporte.php" method="POST" enctype="multipart/form-data">
+                <fieldset>
+                    <legend>Datos del Usuario</legend>
 
-                <label for="descripcion">Descripción del problema</label>
-                <textarea id="descripcion" name="descripcion" rows="4" required></textarea>
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" id="nombre" name="nombre" required>
 
-                <label for="ubicacionTipo">¿Cómo desea indicar la ubicación?</label>
-                <select id="ubicacionTipo" name="ubicacionTipo" onchange="mostrarOpcionesUbicacion()">
-                    <option value="">Seleccione una opción</option>
-                    <option value="descripcion">Describir ubicación</option>
-                    <option value="mapa">Elegir en el mapa</option>
-                </select>
+                    <label for="apellido">Apellido:</label>
+                    <input type="text" id="apellido" name="apellido" required>
 
-                <div id="opcionesDescripcion" style="display: none;">
-                    <label for="provincia">Provincia</label>
-                    <select id="provincia" name="provincia" required onchange="mostrarCantones()">
-                        <option value="">Seleccione una provincia</option>
-                        <option value="San José">San José</option>
-                        <option value="Alajuela">Alajuela</option>
-                        <option value="Cartago">Cartago</option>
-                        <option value="Heredia">Heredia</option>
-                        <option value="Guanacaste">Guanacaste</option>
-                        <option value="Puntarenas">Puntarenas</option>
-                        <option value="Limón">Limón</option>
-                    </select>
+                    <label for="identificacion">Número de Identificación:</label>
+                    <input type="text" id="identificacion" name="identificacion" required>
 
-                    <label for="canton" style="display: none;">Cantón</label>
-                    <select id="canton" name="canton" required style="display: none;" onchange="mostrarDistritos()">
-                        <option value="">Seleccione un cantón</option>
-                    </select>
+                    <label for="email">Correo Electrónico:</label>
+                    <input type="email" id="email" name="email" required>
 
-                    <label for="distrito" style="display: none;">Distrito</label>
-                    <select id="distrito" name="distrito" required style="display: none;">
-                        <option value="">Seleccione un distrito</option>
-                    </select>
+                    <label for="telefono">Teléfono:</label>
+                    <input type="tel" id="telefono" name="telefono" required>
+                </fieldset>
 
-                    <label for="direccionExacta" style="display: none;">Dirección Exacta</label>
-                    <input type="text" id="direccionExacta" name="direccionExacta" placeholder="Escriba la dirección exacta" style="display: none;">
-                </div>
+                <fieldset>
+                    <legend>Detalles del Desperfecto</legend>
 
-                <div id="opcionMapaContenedor" style="display: none;">
-                    <h3>Mapa Interactivo</h3>
-                    <div id="mapa" style="height: 400px;">
+                    <label for="provincia">Provincia:</label>
+                    <input type="text" id="provincia" name="provincia" required>
 
+                    <label for="canton">Cantón:</label>
+                    <input type="text" id="canton" name="canton" required>
 
-                        <!-- Mapa -->
+                    <label for="distrito">Distrito:</label>
+                    <input type="text" id="distrito" name="distrito" required>
 
+                    <label for="descripcion">Descripción del Desperfecto:</label>
+                    <textarea id="descripcion" name="descripcion" required></textarea>
 
+                    <label for="direccion">Dirección Exacta:</label>
+                    <input type="text" id="direccion" name="direccion" required>
 
-                    </div>
-                </div>
+                    <label for="foto1">Fotografía del Desperfecto (1):</label>
+                    <input type="file" id="foto1" name="foto1" accept="image/*" required>
+
+                    <label for="foto2">Fotografía del Desperfecto (2):</label>
+                    <input type="file" id="foto2" name="foto2" accept="image/*">
+
+                    <!-- Checkbox para aceptar que la información es verídica -->
+                    <label for="acepto">
+                        <input type="checkbox" id="acepto" name="acepto" required>
+                        Acepto que la información proporcionada es verídica, las autoridades pueden tomar medidas disciplinarias en caso de que la información proporcionada sea falsa.
+                    </label>
+                </fieldset>
 
                 <button type="submit">Enviar Reporte</button>
+                <button type="reset">Cancelar</button>
             </form>
         </section>
     </main>
 
+    <!-- Footer común -->
     <footer>
-        <p>Contacto: soporte@reportehuecos.com | Teléfono: +506 1234-5678</p>
+        <p>&copy; 2024 Proyecto Reporte de Huecos. Todos los derechos reservados.</p>
+        <p>Contacto: <a href="mailto:alex.fajardo27@yahoo.com">alex.fajardo27@yahoo.com</a></p>
+        <p>Teléfono: +506 1234-5678 | Dirección: San José, Costa Rica</p>
     </footer>
 
-    <script src="JS.js"></script>
+    <!-- Scripts -->
+    <script src="js/script.js"></script>
 </body>
 </html>

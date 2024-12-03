@@ -3,73 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reporte de Huecos y Desperfectos</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Inicio - Reporte de Huecos</title>
+    <link rel="stylesheet" href="css/estilos.css">
 </head>
 <body>
+    <!-- Header común -->
     <header>
-        <h1>Reporte de Huecos y Desperfectos en las Calles</h1>
         <nav>
-            <ul class="nav-links">
+            <ul>
                 <li><a href="index.html">Inicio</a></li>
-                <li><a href="reporte.html">Realizar Reporte</a></li>
+                <li><a href="reporte.html">Reportar Huecos</a></li>
                 <li><a href="nosotros.html">Nosotros</a></li>
-                <li><a href="contacto.html">Contáctenos</a></li>
+                <li><a href="contactanos.html">Contáctanos</a></li>
             </ul>
         </nav>
     </header>
 
+    <!-- Contenido principal -->
     <main>
-        <!-- Carrusel de fotos -->
-        <section class="carousel">
-            <div class="carousel-container">
-                <div class="slide active">
-                    <img src="img/imgHueco1.jpg" alt="Imagen hueco 1">
-                </div>
-                <div class="slide">
-                    <img src="img/imgHueco2.png" alt="Imagen hueco 2">
-                </div>
-                <div class="slide">
-                    <img src="img/imgHueco3.JPG" alt="Imagen hueco 3">
-                </div>
-                <div class="slide">
-                    <img src="img/imgHueco4.jpeg" alt="Imagen hueco 4">
-                </div>
-            </div>
-            <div class="carousel-buttons">
-                <button class="prev">&lt;</button>
-                <button class="next">&gt;</button>
+        <!-- Sección Carrusel -->
+        <section id="carrusel">
+            <div class="carrusel">
+                <button id="prev">←</button>
+                <img src="imagenes/hueco1.jpg" alt="Hueco 1" class="active">
+                <img src="imagenes/hueco2.jpg" alt="Hueco 2">
+                <img src="imagenes/hueco3.jpg" alt="Hueco 3">
+                <img src="imagenes/hueco4.jpg" alt="Hueco 4">
+                <img src="imagenes/hueco5.jpg" alt="Hueco 5">
+                <button id="next">→</button>
             </div>
         </section>
+        
 
-        <!-- Seccion sobre misión, visión y valores -->
-        <section>
-            <h2>Misión</h2>
-            <p>Mejorar la calidad de las carreteras de Costa Rica mediante la colaboración ciudadana.</p>
-            <h2>Visión</h2>
-            <p>Ser la plataforma líder en la mejora de infraestructuras viales en Costa Rica.</p>
-            <h2>Valores</h2>
+        <!-- Sección Misión y Visión -->
+        <section id="mision-vision">
+            <h2>Nuestra Misión</h2>
+            <p>Identificar y reportar huecos en las calles para mejorar la infraestructura vial de Costa Rica, facilitando la comunicación entre ciudadanos y las autoridades.</p>
+            
+            <h2>Nuestra Visión</h2>
+            <p>Ser el canal principal para promover el mantenimiento de las carreteras, asegurando la seguridad vial y contribuyendo al desarrollo del país.</p>
+        </section>
+
+        <!-- Sección Colaboración -->
+        <section id="colaboracion">
+            <h2>Colaboramos con:</h2>
             <ul>
-                <li>Responsabilidad</li>
-                <li>Innovación</li>
-                <li>Colaboración</li>
+                <li><img src="imagenes/mopt.png" alt="Logo MOPT" width="100"> Ministerio de Obras Públicas y Transportes (MOPT)</li>
+                <li><img src="imagenes/conavi.png" alt="Logo CONAVI" width="100"> Consejo Nacional de Vialidad (CONAVI)</li>
+                <li><img src="imagenes/municipalidad.png" alt="Logo Municipalidades" width="100"> Municipalidades de Costa Rica</li>
             </ul>
         </section>
-
-        <!-- Seccion de colaboración con las autoridades -->
-        <section>
-            <h2>Colaboramos con las principales autoridades</h2>
-            <p>Trabajamos con instituciones clave de Costa Rica para garantizar que las reparaciones necesarias en las calles sean realizadas de manera oportuna y eficiente.</p>
-            <p>Estamos estrechamente conectados con el MOPT, Cosevi y las distintas municipalidades para enviar toda la Información necesaria para tener mejores carreteras</p>
-        </section>
-
     </main>
 
+    <!-- Footer común -->
     <footer>
-        <p>Contacto: soporte@reportehuecos.com | Teléfono: +506 1234-5678</p>
+        <p>&copy; 2024 Proyecto Reporte de Huecos. Todos los derechos reservados.</p>
+        <p>Contacto: <a href="mailto:alex.fajardo27@yahoo.com">alex.fajardo27@yahoo.com</a></p>
+        <p>Teléfono: +506 1234-5678 | Dirección: San José, Costa Rica</p>
     </footer>
 
-    <script src="scripts.js"></script>
-    
+    <!-- Scripts -->
+    <script src="js/script.js"></script>
 </body>
 </html>
+

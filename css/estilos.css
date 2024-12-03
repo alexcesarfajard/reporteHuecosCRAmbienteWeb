@@ -1,0 +1,361 @@
+/* Estilo general */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+/* Header y navegación */
+header {
+    background-color: #0056a6;
+    color: white;
+    padding: 1em 0;
+}
+
+header nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+header nav ul li {
+    margin: 0 1em;
+}
+
+header nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+/* Carrusel */
+.carrusel {
+    position: relative;
+    width: 100%;
+    height: 60vh; /* Ajusta la altura relativa al tamaño de la pantalla */
+    overflow: hidden;
+}
+
+.carrusel img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Escala la imagen y corta si es necesario */
+    display: none; /* Oculta todas las imágenes inicialmente */
+    transition: opacity 0.5s ease-in-out; /* Efecto de transición */
+}
+
+.carrusel img.active {
+    display: block; /* Muestra la imagen activa */
+    opacity: 1; /* Asegura que sea completamente visible */
+}
+
+.carrusel button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 1em;
+    cursor: pointer;
+    font-size: 1.5em;
+    z-index: 10;
+}
+
+.carrusel #prev {
+    left: 10px;
+}
+
+.carrusel #next {
+    right: 10px;
+}
+
+/* Secciones de contenido */
+section {
+    margin: 2em auto;
+    max-width: 800px;
+    text-align: center;
+    padding: 1em;
+}
+
+section h2 {
+    color: #0056a6;
+    margin-bottom: 0.5em;
+}
+
+section p, section ul {
+    line-height: 1.6;
+    text-align: justify;
+}
+
+/* Listado de logos */
+section ul {
+    list-style: none;
+    padding: 0;
+}
+
+section ul li {
+    margin: 1em 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1em;
+}
+
+/* Footer */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 1em 0;
+    margin-top: 2em;
+}
+
+footer a {
+    color: #00aaff;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* Estilo para la sección de formulario de contacto */
+#formulario-contacto {
+    background-color: #ffffff;
+    padding: 2em;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2em;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#formulario-contacto h2 {
+    font-size: 2em;
+    color: #0056a6;
+    margin-bottom: 1em;
+}
+
+#formulario-contacto p {
+    font-size: 1.1em;
+    color: #555;
+    margin-bottom: 1.5em;
+}
+
+#formulario-contacto form {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1em;
+}
+
+#formulario-contacto label {
+    font-weight: bold;
+    color: #333;
+}
+
+#formulario-contacto input,
+#formulario-contacto textarea {
+    width: 100%;
+    padding: 0.8em;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1em;
+    color: #333;
+}
+
+#formulario-contacto textarea {
+    height: 150px;
+    resize: none;
+}
+
+#formulario-contacto button {
+    background-color: #0056a6;
+    color: white;
+    padding: 1em;
+    border: none;
+    border-radius: 4px;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+}
+
+#formulario-contacto button:hover {
+    background-color: #004080;
+}
+
+#formulario-contacto button[type="reset"] {
+    background-color: #f44336;
+}
+
+#formulario-contacto button[type="reset"]:hover {
+    background-color: #d32f2f;
+}
+
+/* Estilo para la sección de información de contacto */
+#informacion-contacto {
+    background-color: #f4f4f4;
+    padding: 2em;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#informacion-contacto h2 {
+    font-size: 2em;
+    color: #0056a6;
+    margin-bottom: 1em;
+}
+
+#informacion-contacto p {
+    font-size: 1.1em;
+    color: #333;
+    line-height: 1.6;
+    margin-bottom: 1em;
+}
+
+#informacion-contacto a {
+    color: #0056a6;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+#informacion-contacto a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive: Asegura que el formulario y la información se vean bien en móviles */
+@media (max-width: 768px) {
+    #formulario-contacto {
+        padding: 1.5em;
+    }
+
+    #formulario-contacto h2 {
+        font-size: 1.8em;
+    }
+
+    #informacion-contacto {
+        padding: 1.5em;
+    }
+
+    #informacion-contacto h2 {
+        font-size: 1.8em;
+    }
+
+    #formulario-contacto button {
+        font-size: 1em;
+    }
+}
+
+
+/* Estilo para la sección del formulario de reporte */
+#formulario-reporte {
+    background-color: #ffffff;
+    padding: 2em;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2em;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#formulario-reporte h2 {
+    font-size: 2em;
+    color: #0056a6;
+    margin-bottom: 1em;
+}
+
+#formulario-reporte p {
+    font-size: 1.1em;
+    color: #555;
+    margin-bottom: 1.5em;
+}
+
+#formulario-reporte fieldset {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 1em;
+    margin-bottom: 1em;
+}
+
+#formulario-reporte legend {
+    font-weight: bold;
+    font-size: 1.2em;
+    color: #0056a6;
+}
+
+#formulario-reporte label {
+    font-weight: bold;
+    color: #333;
+    display: block;
+    margin-bottom: 0.5em;
+}
+
+#formulario-reporte input,
+#formulario-reporte textarea {
+    width: 100%;
+    padding: 0.8em;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1em;
+    color: #333;
+    margin-bottom: 1em;
+}
+
+#formulario-reporte textarea {
+    height: 150px;
+    resize: none;
+}
+
+#formulario-reporte input[type="file"] {
+    padding: 0.5em;
+}
+
+#formulario-reporte button {
+    background-color: #0056a6;
+    color: white;
+    padding: 1em;
+    border: none;
+    border-radius: 4px;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+    margin-top: 1em;
+}
+
+#formulario-reporte button:hover {
+    background-color: #004080;
+}
+
+#formulario-reporte button[type="reset"] {
+    background-color: #f44336;
+}
+
+#formulario-reporte button[type="reset"]:hover {
+    background-color: #d32f2f;
+}
+
+#formulario-reporte label input[type="checkbox"] {
+    margin-right: 0.5em;
+}
+
+/* Estilo para el checkbox de aceptación */
+#formulario-reporte label input[type="checkbox"] {
+    margin-top: 1em;
+}
+
+#formulario-reporte button:disabled {
+    background-color: #bbb;
+    cursor: not-allowed;
+}
