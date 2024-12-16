@@ -21,6 +21,10 @@ SET time_zone = "+00:00";
 -- Base de datos: `reporte_calles`
 --
 
+drop schema if exists reporte_calles;
+create database reporte_calles;
+use reporte_calles;
+
 -- --------------------------------------------------------
 
 --
