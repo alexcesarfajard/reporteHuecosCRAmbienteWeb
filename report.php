@@ -1,9 +1,45 @@
-<!doctype html>
-<html lang="en">
+<?php
+// Incluir la clase para la conexión y el reporte de calles
+include_once 'Database.php';
+include_once 'StreetReport.php';
+
+// Crear una instancia de la conexión a la base de datos
+$database = new Database();
+$db = $database->getConnection();
+
+// Crear instancia de la clase StreetReport
+$streetReport = new StreetReport($db);
+
+// Variable para el mensaje
+$message = "";
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Asignar los valores recibidos del formulario a las propiedades de la clase
+    $streetReport->nombre_calle = $_POST['nombre_calle'];
+    $streetReport->ubicacion = $_POST['ubicacion'];
+    $streetReport->descripcion = $_POST['descripcion'];
+    $streetReport->tamano_estimado = $_POST['tamano_estimado'];
+    $streetReport->estado = 'pendiente';  // El reporte comienza como pendiente
+
+    // Intentar guardar el reporte
+    if ($streetReport->report()) {
+        $message = "<div class='alert alert-success' role='alert'>
+                        Calle reportada exitosamente. ¡Gracias por tu colaboración!
+                    </div>";
+    } else {
+        $message = "<div class='alert alert-danger' role='alert'>
+                        Error al reportar la calle. Intenta nuevamente.
+                    </div>";
+    }
+}
+?>
+
+<!DOCTYPE html>
+<html lang="es">
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Reportar Calle en Mal Estado</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reporte de Calle en Mal Estado</title>
     <style>
       /* Variables de color */
       :root {
@@ -85,6 +121,26 @@
           font-size: 0.9rem;
           margin-top: 30px;
       }
+
+      /* Estilos para el mensaje */
+      .alert {
+          padding: 15px;
+          margin-bottom: 20px;
+          border-radius: 4px;
+          font-size: 1.1rem;
+      }
+
+      .alert-success {
+          background-color: #d4edda;
+          color: #155724;
+          border-color: #c3e6cb;
+      }
+
+      .alert-danger {
+          background-color: #f8d7da;
+          color: #721c24;
+          border-color: #f5c6cb;
+      }
     </style>
   </head>
   <body>
@@ -92,7 +148,7 @@
     <section class="navbar">
         <nav class="navbar navbar-expand-lg bg-body-tertiary">
             <div class="container-fluid">
-              <a class="navbar-brand" href="index.html">Reporte de Calles</a>
+              <a class="navbar-brand" href="home.html">Reporte de Calles</a>
               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown">
                 <span class="navbar-toggler-icon"></span>
               </button>
@@ -110,6 +166,10 @@
     <!-- Formulario de Reporte -->
     <main class="formReport">
         <h1 class="title">Reportar Calle en Mal Estado</h1>
+
+        <!-- Mostrar el mensaje de éxito o error -->
+        <?php echo $message; ?>
+
         <form action="report.php" method="POST">
             <div class="field">
                 <label class="label">Nombre de la Calle</label>
@@ -132,7 +192,7 @@
             <div class="field">
                 <label class="label">Tamaño Estimado (en metros)</label>
                 <div class="control">
-                    <input class="input" type="number" name="tamano_estimado" required placeholder="Ej: 1">
+                    <input class="input" type="number" name="tamano_estimado" required placeholder="Ej: 1.5">
                 </div>
             </div>
             <div class="field is-grouped">

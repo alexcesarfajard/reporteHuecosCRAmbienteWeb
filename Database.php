@@ -2,8 +2,8 @@
 class Database {
     private $host = "localhost";
     private $db_name = "reporte_calles";
-    private $username = "root";  // Cambia esto según tu configuración
-    private $password = "";      // Cambia esto según tu configuración
+    private $username = "root";
+    private $password = "root";
     public $conn;
 
     // Conectar a la base de datos
