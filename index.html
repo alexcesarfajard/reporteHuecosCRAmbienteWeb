@@ -1,68 +1,145 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inicio - Reporte de Huecos</title>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sistema de Reporte de Calles</title>
     <link rel="stylesheet" href="css/estilos.css">
-</head>
-<body>
-    <!-- Header -->
-    <header>
-        <nav>
-            <ul>
-                <li><a href="index.html">Inicio</a></li>
-                <li><a href="reporte.html">Reportar Huecos</a></li>
-                <li><a href="nosotros.html">Nosotros</a></li>
-                <li><a href="contactanos.html">Contáctanos</a></li>
-            </ul>
-        </nav>
-    </header>
+    <style>
+      :root {
+            --background-color: #f9f9f9;
+            --text-color: #333;
+            --navbar-bg: #004080;
+            --button-bg: #0066cc;
+            --button-text: #ffffff;
+            --button-hover: #005bb5;
+            --border-color: #d1d1d1;
+        }
 
-    <!-- Contenido principal -->
+        body {
+            background-color: var(--background-color);
+            color: var(--text-color);
+            font-family: "Segoe UI", Tahoma, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar {
+            background-color: var(--navbar-bg);
+            padding: 10px;
+        }
+
+        .navbar a {
+            color: var(--button-text);
+            text-decoration: none;
+            margin-right: 20px;
+        }
+
+        .container {
+            margin: 20px auto;
+            max-width: 1200px;
+        }
+
+        .title {
+            color: var(--navbar-bg);
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+
+      .footer {
+          background-color: var(--navbar-bg);
+          color: var(--button-text);
+          text-align: center;
+          padding: 20px 0;
+          font-size: 0.9rem;
+          margin-top: 30px;
+      }
+
+      .container {
+          padding: 20px;
+      }
+
+      .tituloIndex {
+          font-size: 2rem;
+          font-weight: bold;
+          color: var(--navbar-bg);
+      }
+
+      .parrafoIndex {
+          font-size: 1.2rem;
+          color: var(--text-color);
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <section class="navbar">
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="index.html">Reporte de Calles</a> <!-- Redirigir al index.html -->
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav">
+                  <li class="nav-item"><a class="nav-link active" href="report_issue.html">Reportar Calle</a></li>
+                  <li class="nav-item"><a class="nav-link" href="repairs_in_progress.html">Reparaciones en Progreso</a></li>
+                  <li class="nav-item"><a class="nav-link" href="contact_support.html">Soporte</a></li>
+                </ul>
+              </div>
+            </div>
+          </nav>
+    </section>
+
+    <!-- Contenido Principal -->
     <main>
+        <h1 class="tituloIndex">Bienvenidos al Sistema de Reporte de Calles</h1>
+        <p class="parrafoIndex">
+            Reporta calles y carreteras en mal estado de manera fácil y rápida.
+            Contribuye a mejorar las vías públicas de tu comunidad.
+        </p>
         <!-- Carrusel -->
         <section id="carrusel">
-            <div class="carrusel">
-                <button id="prev">←</button>
-                <img src="imagenes/hueco1.jpg" alt="Hueco 1" class="active">
-                <img src="imagenes/hueco2.jpg" alt="Hueco 2">
-                <img src="imagenes/hueco3.jpg" alt="Hueco 3">
-                <img src="imagenes/hueco4.jpg" alt="Hueco 4">
-                <img src="imagenes/hueco5.jpg" alt="Hueco 5">
-                <button id="next">→</button>
-            </div>
-        </section>
-        
-        <!-- Sección Misión y Visión -->
-        <section id="mision-vision">
-            <h2>Nuestra Misión</h2>
-            <p>Identificar y reportar huecos en las calles para mejorar la infraestructura vial de Costa Rica, facilitando la comunicación entre ciudadanos y las autoridades.</p>
-            
-            <h2>Nuestra Visión</h2>
-            <p>Ser el canal principal para promover el mantenimiento de las carreteras, asegurando la seguridad vial y contribuyendo al desarrollo del país.</p>
-        </section>
+          <div class="carrusel">
+              <button id="prev">←</button>
+              <img src="imagenes/hueco1.jpg" alt="Hueco 1" class="active">
+              <img src="imagenes/hueco2.jpg" alt="Hueco 2">
+              <img src="imagenes/hueco3.jpg" alt="Hueco 3">
+              <img src="imagenes/hueco4.jpg" alt="Hueco 4">
+              <img src="imagenes/hueco5.jpg" alt="Hueco 5">
+              <button id="next">→</button>
+          </div>
+      </section>
+      
+      <!-- Sección Misión y Visión -->
+      <section id="mision-vision">
+          <h2>Nuestra Misión</h2>
+          <p>Identificar y reportar huecos en las calles para mejorar la infraestructura vial de Costa Rica, facilitando la comunicación entre ciudadanos y las autoridades.</p>
+          
+          <h2>Nuestra Visión</h2>
+          <p>Ser el canal principal para promover el mantenimiento de las carreteras, asegurando la seguridad vial y contribuyendo al desarrollo del país.</p>
+      </section>
 
-        <!-- Seccion de colaboración con las autoridades -->
-        <section id="colaboracion">
-            <h2>Colaboramos con:</h2>
-            <ul>
-                <li><img src="imagenes/mopt.png" alt="Logo MOPT" width="100"> Ministerio de Obras Públicas y Transportes (MOPT)</li>
-                <li><img src="imagenes/conavi.png" alt="Logo CONAVI" width="100"> Consejo Nacional de Vialidad (CONAVI)</li>
-                <li><img src="imagenes/municipalidad.png" alt="Logo Municipalidades" width="100"> Municipalidades de Costa Rica</li>
-            </ul>
-        </section>
+      <!-- Seccion de colaboración con las autoridades -->
+      <section id="colaboracion">
+          <h2>Colaboramos con:</h2>
+          <ul>
+              <li><img src="imagenes/mopt.png" alt="Logo MOPT" width="100"> Ministerio de Obras Públicas y Transportes (MOPT)</li>
+              <li><img src="imagenes/conavi.png" alt="Logo CONAVI" width="100"> Consejo Nacional de Vialidad (CONAVI)</li>
+              <li><img src="imagenes/municipalidad.png" alt="Logo Municipalidades" width="100"> Municipalidades de Costa Rica</li>
+          </ul>
+      </section>
     </main>
 
     <!-- Footer -->
-    <footer>
-        <p>&copy; 2024 Proyecto Reporte de Huecos. Todos los derechos reservados.</p>
-        <p>Contacto: <a href="mailto:alex.fajardo27@yahoo.com">alex.fajardo27@yahoo.com</a></p>
-        <p>Teléfono: +506 1234-5678 | Dirección: San José, Costa Rica</p>
+    <footer class="footer">
+        <div class="content has-text-centered">
+          <p><strong>Sistema de Reporte de Calles</strong> desarrollado en 2024.</p>
+        </div>
     </footer>
 
     <!-- Script -->
     <script src="js/script.js"></script>
-</body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
 </html>
-

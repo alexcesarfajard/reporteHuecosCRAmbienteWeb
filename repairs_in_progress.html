@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Reparaciones en Progreso</title>
+    <style>
+        /* Variables de color */
+        :root {
+            --background-color: #f9f9f9;
+            --text-color: #333;
+            --navbar-bg: #004080;
+            --button-bg: #0066cc;
+            --button-text: #ffffff;
+            --button-hover: #005bb5;
+            --border-color: #d1d1d1;
+        }
+
+        body {
+            background-color: var(--background-color);
+            color: var(--text-color);
+            font-family: "Segoe UI", Tahoma, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar {
+            background-color: var(--navbar-bg);
+            padding: 10px;
+        }
+
+        .navbar a {
+            color: var(--button-text);
+            text-decoration: none;
+            margin-right: 20px;
+        }
+
+        .container {
+            margin: 20px auto;
+            max-width: 1200px;
+        }
+
+        .title {
+            color: var(--navbar-bg);
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid var(--border-color);
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: var(--navbar-bg);
+            color: var(--button-text);
+        }
+
+        .button {
+            background-color: var(--button-bg);
+            color: var(--button-text);
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .button:hover {
+            background-color: var(--button-hover);
+        }
+
+        .alert {
+            padding: 10px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+
+        .alert-success {
+            background-color: #d4edda;
+            color: #155724;
+        }
+
+        .alert-danger {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <div class="navbar">
+        <a href="index.html">Inicio</a>
+        <a href="report_issue.html">Reportar Calle</a>
+        <a href="repairs_in_progress.html">Reparaciones en Progreso</a>
+        <a href="contact_support.html">Soporte</a>
+    </div>
+
+    <!-- Contenedor principal -->
+    <div class="container">
+        <h1 class="title">Reparaciones en Progreso</h1>
+        <p>Lista de calles que están en proceso de reparación.</p>
+
+        <!-- Mostrar mensaje de éxito o error -->
+        <div id="message"></div>
+
+        <!-- Formulario para añadir una nueva calle -->
+        <h2>Añadir Nueva Calle a Reparar</h2>
+        <form id="addStreetForm" onsubmit="addStreet(event)">
+          <label>Nombre de la Calle:</label>
+          <input type="text" id="nombre_calle" required class="form-control">
+          <label>Ubicación:</label>
+          <input type="text" id="ubicacion" required class="form-control">
+          <label>Descripción del Daño:</label>
+          <input type="text" id="descripcion" required class="form-control">
+          <label>Fecha de Inicio:</label>
+          <input type="date" id="fecha_inicio" required class="form-control">
+          <label>Estado:</label>
+          <select id="estado" required class="form-control">
+              <option value="En Reparación">En Reparación</option>
+              <option value="Reparación Programada">Reparación Programada</option>
+          </select>
+          <br>
+          <button type="submit" class="button">Agregar Calle</button>
+      </form>
+
+        <!-- Tabla de calles en reparación -->
+        <h2>Calles en Reparación</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Nombre de la Calle</th>
+                    <th>Ubicación</th>
+                    <th>Descripción</th>
+                    <th>Fecha de Inicio</th>
+                    <th>Estado</th>
+                </tr>
+            </thead>
+            <tbody id="streetList">
+                <!-- Las calles se llenarán aquí dinámicamente desde JavaScript -->
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        // Función para agregar una calle al localStorage y actualizar la tabla
+        function addStreet(event) {
+            event.preventDefault(); // Prevenir que el formulario se envíe
+
+            // Obtener los valores del formulario
+            const nombreCalle = document.getElementById('nombre_calle').value;
+            const ubicacion = document.getElementById('ubicacion').value;
+            const descripcion = document.getElementById('descripcion').value;
+            const fechaInicio = document.getElementById('fecha_inicio').value;
+            const estado = document.getElementById('estado').value;
+
+            // Validar campos vacíos
+            if (!nombreCalle || !ubicacion || !descripcion || !fechaInicio || !estado) {
+                document.getElementById('message').innerHTML = "<div class='alert alert-danger'>Por favor, complete todos los campos.</div>";
+                return;
+            }
+
+            // Crear un objeto para la nueva calle
+            const newStreet = {
+                nombre_calle: nombreCalle,
+                ubicacion: ubicacion,
+                descripcion: descripcion,
+                fecha_inicio: fechaInicio,
+                estado: estado
+            };
+
+            // Obtener las calles almacenadas en localStorage
+            let streets = JSON.parse(localStorage.getItem('streets')) || [];
+
+            // Agregar la nueva calle
+            streets.push(newStreet);
+
+            // Guardar las calles actualizadas en localStorage
+            localStorage.setItem('streets', JSON.stringify(streets));
+
+            // Limpiar el formulario
+            document.getElementById('addStreetForm').reset();
+
+            // Mostrar mensaje de éxito
+            document.getElementById('message').innerHTML = "<div class='alert alert-success'>La calle ha sido añadida exitosamente.</div>";
+
+            // Actualizar la lista de calles en la tabla
+            displayStreets();
+        }
+
+        // Función para mostrar las calles en la tabla
+        function displayStreets() {
+            const streets = JSON.parse(localStorage.getItem('streets')) || [];
+            const streetList = document.getElementById('streetList');
+            streetList.innerHTML = ''; // Limpiar la lista actual
+
+            // Mostrar las calles
+            streets.forEach((street, index) => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${index + 1}</td>
+                    <td>${street.nombre_calle}</td>
+                    <td>${street.ubicacion}</td>
+                    <td>${street.descripcion}</td>
+                    <td>${street.fecha_inicio}</td>
+                    <td>${street.estado}</td>
+                `;
+                streetList.appendChild(row);
+            });
+        }
+
+        // Cargar las calles cuando la página se carga
+        window.onload = displayStreets;
+    </script>
+</body>
+</html>

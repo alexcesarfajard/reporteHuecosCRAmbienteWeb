@@ -1,0 +1,132 @@
+/* Variables de color */
+:root {
+    --background-color: #121212; /* Fondo oscuro */
+    --text-color: #e0e0e0;       /* Texto claro */
+    --navbar-bg: #1f1f1f;         /* Fondo del navbar */
+    --card-bg: #1e1e1e;           /* Fondo de las tarjetas */
+    --button-bg: #333;            /* Fondo de los botones */
+    --button-text: #fff;          /* Color del texto de los botones */
+    --dropdown-bg: #333;          /* Fondo del dropdown */
+    --dropdown-hover: #555;       /* Fondo del dropdown al pasar el ratón */
+    --link-hover: #bbb;           /* Color de los enlaces al pasar el ratón */
+    --table-header-bg: #1f1f1f;   /* Color de fondo de encabezado de tabla */
+    --table-border: #444;         /* Bordes de tabla */
+}
+
+/* Estilos generales */
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Navbar */
+.navbar {
+    background-color: var(--navbar-bg);
+    padding: 10px 20px;
+}
+
+.navbar a {
+    color: var(--text-color);
+    text-decoration: none;
+    padding: 8px 16px;
+    transition: 0.3s;
+}
+
+.navbar a:hover {
+    background-color: var(--link-hover);
+    border-radius: 4px;
+}
+
+/* Formulario */
+form {
+    background-color: var(--card-bg);
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+form label {
+    display: block;
+    margin-bottom: 5px;
+    color: var(--text-color);
+}
+
+.form-control {
+    background-color: #333;
+    color: var(--text-color);
+    border: 1px solid var(--table-border);
+    border-radius: 4px;
+    padding: 8px;
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: var(--dropdown-hover);
+}
+
+.btn-primary {
+    background-color: var(--button-bg);
+    color: var(--button-text);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-primary:hover {
+    background-color: var(--dropdown-hover);
+}
+
+/* Tabla */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table th, table td {
+    border: 1px solid var(--table-border);
+    padding: 10px;
+    text-align: left;
+}
+
+table th {
+    background-color: var(--table-header-bg);
+    color: var(--text-color);
+    font-weight: bold;
+}
+
+table tr:nth-child(even) {
+    background-color: #1a1a1a;
+}
+
+table tr:hover {
+    background-color: #333;
+    transition: 0.3s;
+}
+
+/* Mensaje de éxito */
+.success-message {
+    background-color: #2e7d32;
+    color: #fff;
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Footer */
+.footer {
+    background-color: var(--navbar-bg);
+    color: var(--text-color);
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 20px;
+}
