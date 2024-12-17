@@ -94,42 +94,13 @@
 
     <!-- Contenido Principal -->
     <main>
-        <h1 class="tituloIndex">Bienvenidos al Sistema de Reporte de Calles</h1>
-        <p class="parrafoIndex">
-            Reporta calles y carreteras en mal estado de manera fácil y rápida.
-            Contribuye a mejorar las vías públicas de tu comunidad.
-        </p>
-        <!-- Carrusel -->
-        <section id="carrusel">
-          <div class="carrusel">
-              <button id="prev">←</button>
-              <img src="imagenes/hueco1.jpg" alt="Hueco 1" class="active">
-              <img src="imagenes/hueco2.jpg" alt="Hueco 2">
-              <img src="imagenes/hueco3.jpg" alt="Hueco 3">
-              <img src="imagenes/hueco4.jpg" alt="Hueco 4">
-              <img src="imagenes/hueco5.jpg" alt="Hueco 5">
-              <button id="next">→</button>
-          </div>
-      </section>
-      
-      <!-- Sección Misión y Visión -->
-      <section id="mision-vision">
-          <h2>Nuestra Misión</h2>
-          <p>Identificar y reportar huecos en las calles para mejorar la infraestructura vial de Costa Rica, facilitando la comunicación entre ciudadanos y las autoridades.</p>
-          
-          <h2>Nuestra Visión</h2>
-          <p>Ser el canal principal para promover el mantenimiento de las carreteras, asegurando la seguridad vial y contribuyendo al desarrollo del país.</p>
-      </section>
-
-      <!-- Seccion de colaboración con las autoridades -->
-      <section id="colaboracion">
-          <h2>Colaboramos con:</h2>
-          <ul>
-              <li><img src="imagenes/mopt.png" alt="Logo MOPT" width="100"> Ministerio de Obras Públicas y Transportes (MOPT)</li>
-              <li><img src="imagenes/conavi.png" alt="Logo CONAVI" width="100"> Consejo Nacional de Vialidad (CONAVI)</li>
-              <li><img src="imagenes/municipalidad.png" alt="Logo Municipalidades" width="100"> Municipalidades de Costa Rica</li>
-          </ul>
-      </section>
+    <form method="post" action="procesar_login.php">
+            <label>Usuario:</label><br>
+            <input type="text" name="username" id="username"><br>
+            <label>Clave:</label><br>
+            <input type="password" name="password" id="password"><br>
+            <button type="submit">Iniciar sesion</button>
+        </form>
     </main>
 
     <!-- Footer -->

@@ -136,20 +136,29 @@ CREATE TABLE `servicios` (
 -- Estructura de tabla para la tabla `usuarios`
 --
 
-CREATE TABLE `usuarios` (
-  `id` int(11) NOT NULL,
-  `username` varchar(50) NOT NULL,
-  `password` varchar(255) NOT NULL,
-  `role` enum('ciudadano','admin') NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+--
+-- Estructura de tabla para la tabla `user`
+--
+
+CREATE TABLE `user` (
+  `id` int NOT NULL,
+  `username` varchar(100) NOT NULL,
+  `password` varchar(100) NOT NULL,
+  `rol` varchar(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Volcado de datos para la tabla `user`
+--
+
+INSERT INTO `user` (`id`, `username`, `password`, `rol`) VALUES
+(2, 'test', '$2y$10$my1dVQaQzFgCwyL.MVbtEOl0HoKM8r9Z1plXecIQ30xEZUOKhq0iq', 'admin');
+
 
 --
 -- Volcado de datos para la tabla `usuarios`
 --
 
-INSERT INTO `usuarios` (`id`, `username`, `password`, `role`) VALUES
-(1, 'admin', '123456', 'admin'),
-(2, 'ciudadano', '123456', 'ciudadano');
 
 --
 -- Índices para tablas volcadas
