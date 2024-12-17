@@ -1,6 +1,6 @@
 <?php 
 
-include("database.php");
+include("Database.php");
 session_start();
 
 $sql = "SELECT * FROM user WHERE username = '".$_POST["username"]."'";

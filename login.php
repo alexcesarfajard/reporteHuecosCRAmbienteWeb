@@ -94,7 +94,7 @@
 
     <!-- Contenido Principal -->
     <main>
-    <form method="post" action="procesar_login.php">
+    <form method="post" action="/procesar_login.php">
             <label>Usuario:</label><br>
             <input type="text" name="username" id="username"><br>
             <label>Clave:</label><br>
